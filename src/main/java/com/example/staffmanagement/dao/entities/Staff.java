@@ -21,7 +21,6 @@ public class Staff implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private  String userId;
     private String nom;
     private String prenom;
     private String telephone;

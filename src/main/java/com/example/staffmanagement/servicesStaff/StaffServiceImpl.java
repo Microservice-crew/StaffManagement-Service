@@ -1,7 +1,6 @@
 package com.example.staffmanagement.servicesStaff;
 
 import com.example.staffmanagement.dao.entities.Staff;
-import com.example.staffmanagement.dao.entities.User;
 import com.example.staffmanagement.dao.repository.StaffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +13,6 @@ public class StaffServiceImpl implements StaffService {
     @Autowired
     StaffRepository staffRepository;
 
-    @Autowired
-    private userService userService;
 
     @Override
     public List<Staff> getAllStaffMembers() {
@@ -28,9 +25,7 @@ public class StaffServiceImpl implements StaffService {
     }
 
     @Override
-    public Staff createStaff(Staff staff, String userId) {
-        User user = userService.getUserById(userId);
-        staff.setUserId(user.get_id());
+    public Staff createStaff(Staff staff) {
         return staffRepository.save(staff);
     }
 
